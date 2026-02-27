@@ -43,6 +43,20 @@
             overflow-x: hidden;
         }
 
+        /* Protect Images */
+        img {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            pointer-events: none;
+            /* Disable right click completely */
+        }
+
         /* Typography */
         h1,
         h2,
@@ -439,19 +453,22 @@
 
     <header>
         <div class="logo-container" style="display: flex; align-items: center; gap: 15px;">
-            <img src="./assets/FineLinK_Logo_New.png" alt="FineLink Logo"
+            <img oncontextmenu='return false;' draggable='false' src="./assets/FineLinK_Logo_New.png"
+                alt="FineLink Logo"
                 style="height: 26px; width: auto; filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.7));">
             <h1>佳聯光學科技</h1>
         </div>
         <nav>
+            <a href="#home">首頁</a>
             <a href="#about">關於我們</a>
             <a href="#services">技術方案</a>
+            <a href="#cases">實戰案例</a>
             <a href="#advantages">企業優勢</a>
             <a href="#contact">聯絡合作</a>
         </nav>
     </header>
 
-    <section class="hero" id="about">
+    <section class="hero" id="home">
         <div class="hero-content">
             <h2>具備<span class="gradient-text">決策級AI</span>的<br>工業視覺夥伴</h2>
             <p class="slogan"
@@ -462,26 +479,43 @@
         </div>
     </section>
 
+    <section class="about" id="about" style="background-color: #03060a; text-align: center;">
+        <div class="about-container" style="max-width: 900px; margin: 0 auto;">
+            <h2 class="section-title">關於佳聯</h2>
+            <p
+                style="font-size: 2rem; font-weight: 800; color: var(--primary-color); margin-bottom: 30px; letter-spacing: 2px;">
+                「創造可以被利用的價值」
+            </p>
+            <p style="font-size: 1.15rem; color: #b0c4de; line-height: 1.8;">
+                我們是一支從最嚴苛光學標準淬鍊出來的正規軍。團隊具備十多年頂尖精密光學（如微米級偏光板檢測）的深厚底蘊。在推動智慧製造的過程中，客戶買的不只是技術，更是對團隊的信任。佳聯光學科技致力於將極致的光學技術轉化為實際的產線自動化戰力，成為您最值得信賴的決策級視覺模組夥伴。
+            </p>
+        </div>
+    </section>
+
     <section class="services" id="services">
         <h2 class="section-title">核心技術與解決方案</h2>
         <div class="services-grid">
             <div class="service-card">
-                <img src="./assets/2025-12-11_17-27-09_188_annotated.png" alt="AI 視覺檢測" class="service-image">
+                <img oncontextmenu='return false;' draggable='false'
+                    src="./assets/2025-12-11_17-27-09_188_annotated.png" alt="AI 視覺檢測" class="service-image">
                 <div class="service-icon"><i class="fa-solid fa-microchip"></i></div>
                 <h3>AI 視覺檢測模組</h3>
                 <p>運用先進深度學習技術，精準解決複雜特徵辨識。適用於各類工業產品的外觀瑕疵檢測、精密量測與高準確度的字元識別 (OCR)。</p>
             </div>
             <div class="service-card">
-                <img src="./assets/螢幕擷取畫面 2026-02-26 182108.png" alt="3D 輪廓量測" class="service-image">
+                <img oncontextmenu='return false;' draggable='false' src="./assets/螢幕擷取畫面 2026-02-26 182108.png"
+                    alt="3D 輪廓量測" class="service-image">
                 <div class="service-icon"><i class="fa-solid fa-cube"></i></div>
                 <h3>3D 輪廓量測技術</h3>
                 <p>完美整合 Fringe Projection Profilometry (FPP) 相位偏移技術，提供微米級的高精度三維形貌掃描，達成嚴苛的幾何品質控管要求。</p>
             </div>
             <div class="service-card">
-                <img src="./assets/PXL_20240926_035737463.jpg" alt="AOI 整合開發平台" class="service-image">
+                <img oncontextmenu='return false;' draggable='false' src="./assets/PXL_20240926_035737463.jpg"
+                    alt="AOI 整合開發平台" class="service-image">
                 <div class="service-icon"><i class="fa-solid fa-code-branch"></i></div>
                 <h3>AOI 整合開發平台</h3>
-                <p>專為設備開發商量身打造的模組化軟體平台。無縫整合光機電硬體控制與 AI 影像處理算力，巨幅縮短視覺系統的導入與開發週期。</p>
+                <p>專為設備開發商量身打造的軟體平台。無縫整合硬體控制與 AI 算力。<strong style="color: var(--primary-color);">支援主流 PLC 通訊協定 (Modbus,
+                        TCP/IP)</strong>，並具備將檢測數據 (如 OCR 履歷) 拋轉上傳至工廠 MES 系統的能力，實現隨插即用的完美系統交握 (Handshake)。</p>
             </div>
         </div>
     </section>
@@ -518,10 +552,46 @@
         </div>
     </section>
 
+    <section class="cases" id="cases">
+        <h2 class="section-title">實戰案例</h2>
+        <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+            <div class="service-card" style="display: flex; flex-direction: column;">
+                <img oncontextmenu='return false;' draggable='false' src="./assets/PXL_20250421_084229985.jpg"
+                    alt="極端環境 3D 量測" class="service-image" style="height: 250px;">
+                <h3 style="color: var(--primary-color); font-size: 1.3rem; margin-top: 10px;"><i
+                        class="fa-solid fa-flask-vial" style="margin-right: 10px;"></i>極端環境的 3D 量測</h3>
+                <h4 style="color: #fff; margin-bottom: 15px; font-size: 1.1rem; font-weight: 600;">某國內大型鋼鐵廠</h4>
+                <p style="flex-grow: 1; color: #a0b2c6; line-height: 1.6;">
+                    <strong style="color: #e0e6ed;">痛點與環境：</strong>在充滿腐蝕性氣體的酸洗產線，傳統光學設備難以生存，且需要極高精度的形貌量測。<br><br>
+                    <strong style="color: #e0e6ed;">解決方案：</strong>導入工業級防護的 3D
+                    雷射技術，在嚴苛的酸性環境中，穩定完成微米級的鋼板起伏量測，展現無可挑剔的系統耐用度與工業級精準度。
+                </p>
+            </div>
+            <div class="service-card" style="display: flex; flex-direction: column;">
+                <img oncontextmenu='return false;' draggable='false' src="./assets/PXL_20240925_065155840.jpg"
+                    alt="設備 AI 賦能" class="service-image" style="height: 250px;">
+                <h3 style="color: var(--primary-color); font-size: 1.3rem; margin-top: 10px;"><i
+                        class="fa-solid fa-box-open" style="margin-right: 10px;"></i>自動化設備的 AI 賦能</h3>
+                <h4 style="color: #fff; margin-bottom: 15px; font-size: 1.1rem; font-weight: 600;">偏光板清潔機自動分揀辨識系統</h4>
+                <p style="flex-grow: 1; color: #a0b2c6; line-height: 1.6;">
+                    <strong style="color: #e0e6ed;">痛點與環境：</strong>偏光板出貨前，面對大量的矢印章與 Mark
+                    標記檢查，傳統設備難以穩定判斷各種章形，高度依賴人工目視複檢，容易發生漏檢與客訴。<br><br>
+                    <strong style="color: #e0e6ed;">解決方案：</strong>將決策視覺模組直接建置於現有清潔機，結合深度學習 (AI) 與自動化光學檢測 (AOI)
+                    技術。系統能即時、精準判斷矢印章形態及 Mark 瑕疵，搭配自動上下料模組徹底取代人工分揀，大幅提升檢測良率，達成高產能、高一致性的工業級出貨品管。
+                </p>
+            </div>
+        </div>
+    </section>
+
     <section class="contact" id="contact">
         <div class="contact-box">
             <h2 class="section-title" style="margin-bottom: 30px;">聯絡我們</h2>
             <p>如果您有任何工業視覺、3D量測或 AI 大腦導入的需求，我們的技術專家隨時準備為您提供支援與諮詢。</p>
+            <div style="margin: 40px 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <a href="mailto:jim_wang@finelinkopt.com?subject=預約線上軟體 Demo" class="cta-button"
+                    style="background: var(--primary-color); color: var(--bg-color);">預約線上軟體 Demo</a>
+                <a href="mailto:jim_wang@finelinkopt.com?subject=索取視覺模組整合評估" class="cta-button">索取視覺模組整合評估</a>
+            </div>
             <div class="contact-info" style="flex-direction: column; align-items: center; gap: 20px;">
                 <div class="info-item" style="width: 100%; max-width: 400px; justify-content: flex-start;">
                     <i class="fa-solid fa-phone" style="width: 30px; text-align: center;"></i>
