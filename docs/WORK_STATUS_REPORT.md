@@ -26,3 +26,5 @@
 - 增加全站圖片保護機制，於 CSS 加入 `user-drag: none`、`user-select: none` 以及 `pointer-events: none` 屬性，防堵圖片被另存下載或拖曳，保護公司資產。
 - 協助將今日的修改與更新提交 (Commit) 並推送 (Push) 至 GitHub `main` 分支，完成網站內容更新上線。
 - 依據指示更新企業優勢配圖 `assets/PXL_20251211_092354209.jpg` 並提交至 Github。
+- 再次接收並更新最新的企業優勢配圖 `assets/PXL_20251211_092354209.jpg`，並完成 GitHub 上傳部署。
+- 修復手機端圖片無法顯示的問題：移除 CSS 中導致行動裝置上圖片不可見的 `pointer-events: none` 屬性，改以 JavaScript 攔截右鍵選單的方式 (`contextmenu` 事件) 來保護圖片不被下載，同時維持正常的圖片顯示。

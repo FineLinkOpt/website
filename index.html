@@ -53,8 +53,7 @@
             -moz-user-select: none;
             -webkit-user-select: none;
             -ms-user-select: none;
-            pointer-events: none;
-            /* Disable right click completely */
+            /* pointer-events: none; Removed as it causes display/interaction issues on mobile */
         }
 
         /* Typography */
@@ -617,6 +616,14 @@
         <p>&copy; 2026 佳聯光學科技股份有限公司 FineLink Optical Technology. All rights reserved.</p>
     </footer>
 
+    <script>
+        // Prevent right-click (context menu) on all images
+        document.addEventListener('contextmenu', function (e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
 
 </html>
