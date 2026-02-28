@@ -44,3 +44,6 @@
 - 將生成的 Logo 圖騰 (`assets/Company_Logo_Icon.png`) 的綠色背景修改為對齊原 Logo 中公司名稱的綠色，並將中間的黃色十字星進一步放大，使其尖端能夠自然突出並超越圓角方形的邊緣，形成滿版且帶有突破感的視覺效果。
 - 針對 `assets/Company_Logo_Icon_Circle.png` 圓形企業 Logo 進行了深度優化：移除了星星周圍殘留的背景綠色毛邊，並萃取純粹的黃色星星將其零邊距（無 Padding）精準縮放至 512x512 的滿版尺寸。現在星星的左上角以及右下角的尖端，已經絕對完美地切齊並頂到了 Icon 畫布的極限頂點。
 - 接收使用者提供的自製網站標誌 `assets/FineLinK_Logo_Rect.png`，並已將其配置於 `index.html` 的 `<head>` 區塊中，擔任網站 Favicon 與行動裝置的 Apple Touch Icon。
+- 經過以上所有操作與新增之視覺素材（包含動態影片補充），目前最新的版本已成功「提交 (Commit)」並「推送 (Push)」回 GitHub (`FineLinkOpt/website`) 主分支，完全同步上線。
+- 為了使 `assets/path94.png` (綠色 F 圖標) 的邊緣達到絕對銳利且「不改變任何原始綠色」的要求，捨棄了會產生光暈亮邊的傳統銳化濾鏡 (Unsharp Mask/Laplacian)。改採 Python 取樣其原始核心的絕對綠色值 (`RGB: 60, 116, 56`) ，並對透明通道進行直接的二值化硬邊裁切，最後填入該純粹綠色宣告。這去除了所有的半透明抗鋸齒毛邊，實現了極致銳利又 100% 維持原色的完美邊緣切齊。
+- 根據使用者指示，將網站的 Favicon 以及 Apple Touch Icon 從原先的 `FineLinK_Logo_Rect.png` 替換為最新的 `assets/FineLinK_Logo_Rect1.png`。
