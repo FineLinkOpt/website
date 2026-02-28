@@ -39,3 +39,8 @@
 - 曾嘗試調整「實戰案例」區塊的 CSS Grid 以實現三欄排版，但經評估後認為會使得案件卡片（如「外掛式 AI 智能分類系統」）在視覺上變小而減弱展示力道，因此已恢復為原先的排版設定，確保重點特色能被清楚閱讀。
 - 修正 `index.html` 中第 274 行 CSS 語法警告，為 `-webkit-background-clip: text;` 補充了標準相容屬性 `background-clip: text;` 以符合標準規範。
 
+## 2026-02-28 網站視覺素材更新
+- 依據需求，透過 Python (OpenCV / PIL) 腳本，成功從原始 Logo (`assets/FineLinK_Logo_New.png`) 中萃取出黃色斜向十字星，並將其置於單純綠色圓角方形背景正中央，生成新的企業 Logo 圖騰 (`assets/Company_Logo_Icon.png`)。
+- 將生成的 Logo 圖騰 (`assets/Company_Logo_Icon.png`) 的綠色背景修改為對齊原 Logo 中公司名稱的綠色，並將中間的黃色十字星進一步放大，使其尖端能夠自然突出並超越圓角方形的邊緣，形成滿版且帶有突破感的視覺效果。
+- 針對 `assets/Company_Logo_Icon_Circle.png` 圓形企業 Logo 進行了深度優化：移除了星星周圍殘留的背景綠色毛邊，並萃取純粹的黃色星星將其零邊距（無 Padding）精準縮放至 512x512 的滿版尺寸。現在星星的左上角以及右下角的尖端，已經絕對完美地切齊並頂到了 Icon 畫布的極限頂點。
+- 接收使用者提供的自製網站標誌 `assets/FineLinK_Logo_Rect.png`，並已將其配置於 `index.html` 的 `<head>` 區塊中，擔任網站 Favicon 與行動裝置的 Apple Touch Icon。
