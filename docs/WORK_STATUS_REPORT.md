@@ -48,3 +48,4 @@
 - 為了使 `assets/path94.png` (綠色 F 圖標) 的邊緣達到絕對銳利且「不改變任何原始綠色」的要求，捨棄了會產生光暈亮邊的傳統銳化濾鏡 (Unsharp Mask/Laplacian)。改採 Python 取樣其原始核心的絕對綠色值 (`RGB: 60, 116, 56`) ，並對透明通道進行直接的二值化硬邊裁切，最後填入該純粹綠色宣告。這去除了所有的半透明抗鋸齒毛邊，實現了極致銳利又 100% 維持原色的完美邊緣切齊。
 - 根據使用者指示，將網站的 Favicon 以及 Apple Touch Icon 從原先的 `FineLinK_Logo_Rect.png` 替換為最新的 `assets/FineLinK_Logo_Rect1.png`。
 - 根據指示將 `assets/ObjectDetect.mp4` 影片放上網頁，於「實戰案例」區塊新增「高精度 AI 物件偵測」項目，展示動態物件定位與辨識能力。
+- 接收並更新最新的 `assets/ObjectDetect.mp4` 影片檔案，完成 GitHub 上傳與網站部署。
