@@ -88,3 +88,53 @@
   - hero 區塊移除 `background-attachment: fixed`，避免 iOS Safari 上背景圖跳動或無法顯示的問題。
   - a11y：兩頁加入「跳至主內容」鍵盤捷徑、為 `<nav>` 補 `aria-label="主導覽"`、用 `<main id="main-content">` 包覆主要內容區塊。
   - 移除已失效的一次性 Logo 處理腳本 `sharpen_logo.py`（其參照的 `FineLinK_Logo_Rect.png` 已於前一波清理刪除）。
+
+---
+
+## 開發進度總結｜2026-05-16 網站效能 / SEO / 可及性全面優化
+
+本日完成兩波結構性優化並推送上線 (`origin/main`)，網站 (https://www.finelinkopt.com/) 已透過 GitHub Pages 自動部署。
+
+### 第一波 — 效能、資產清理、CSS 抽取、SEO Metadata
+- **Commit**：`c167021` `perf: compress hero bg, prune unused assets, extract shared CSS, add SEO metadata`
+- **異動規模**：30 個檔案、+349 / −402 行
+
+| 範疇 | 內容 |
+|---|---|
+| 效能 | hero 背景圖 `PXL_20240925_064857239.jpg` 由 4.9 MB → 419 KB（-92%，縮至 1920 px 寬） |
+| 資產清理 | 刪除 23 個未引用／敏感檔案：30 MB 未用 mp4、52 MB 未壓縮 PNG、創新研究獎申請書 PDF、3DWarp 內部技術／市場策略報告 (.txt/.pdf)、過時的截圖與 PNG。資產目錄淨減約 115 MB |
+| 共用樣式 | 抽出 `assets/styles.css`（172 行）：設計 token、header、nav、`.section-title`、footer、圖片保護、`fadeUp`；清掉 `.report-*` dead CSS。`index.html` 672→508 行、`3d-profiler.html` 503→305 行 |
+| SEO | 兩頁補 `<link rel="canonical">`、Open Graph、Twitter Card；首頁 JSON-LD `Organization`（含公司名、Logo、地址、電話、統編、slogan、聯絡資訊）；3D 產品頁 JSON-LD `Product`（Cg=1.15、Z 軸變異 <15 μm 等 `additionalProperty`） |
+| 內容 | `index.html` meta description 從 36 字擴充為 79 字，加入 `FineLink Optical Technology` 全名與「3D 輪廓量測」關鍵字 |
+| 文件 | 新增 `CLAUDE.md`（給未來 Claude 的工作指引）；本檔追加今日工作紀錄 |
+
+### 第二波 — Lazy load、404、a11y、Mobile 修正
+- **Commit**：`ad7d1c8` `perf+a11y: lazy-load images, add 404/robots/sitemap, accessibility polish`
+- **異動規模**：8 個檔案
+
+| 範疇 | 內容 |
+|---|---|
+| 效能 | 10 個 `<img>` 補 `width`/`height`（依實際像素），7 個非首屏圖加 `loading="lazy"`；2 個 video 加 `preload="metadata"` |
+| SEO | 新增 `robots.txt` 與 `sitemap.xml`（含首頁、3D 產品頁） |
+| UX | 新增 `404.html`（同站視覺、含返回首頁按鈕），取代 GitHub Pages 預設 |
+| Mobile | hero 移除 `background-attachment: fixed`（修 iOS Safari 顯示問題） |
+| 可及性 | 兩頁加入「跳至主內容」skip-link、`<nav aria-label="主導覽">`、`<main id="main-content">` 包覆主內容；改寫所有 `alt` 文字為更具描述性的版本 |
+| 整潔 | 移除已失效的一次性腳本 `sharpen_logo.py` |
+
+### 量化成果（估計）
+
+| 指標 | 優化前 | 優化後 |
+|---|---|---|
+| 首屏關鍵資源（hero 背景圖） | 4.9 MB | 419 KB |
+| Repo 工作目錄資產目錄 | ~120 MB | ~5 MB |
+| 兩支 HTML 總行數 | 1 175 | 813（含共用 CSS 172 行另計） |
+| 圖片可預判尺寸（避免 CLS） | 0/10 | 10/10 |
+| 結構化資料 (JSON-LD) | 無 | 首頁 Organization + 3D 頁 Product |
+| 社群分享預覽 (OG/Twitter Card) | 無 | 兩頁完整覆蓋 |
+
+### 已知未做（需設計決策才動）
+
+- 案例區塊大量 inline `style="..."` 抽成 class — 視覺風險中、需要本地確認
+- 行動裝置漢堡選單 — 需要 JS 與 icon 設計決策
+- 外部 CDN (`Font Awesome`、`Google Fonts`) 加 SRI — 升版時需手動更新 hash
+- Google Search Console 重新提交 `sitemap.xml` — 需業主登入操作
