@@ -88,6 +88,7 @@
   - hero 區塊移除 `background-attachment: fixed`，避免 iOS Safari 上背景圖跳動或無法顯示的問題。
   - a11y：兩頁加入「跳至主內容」鍵盤捷徑、為 `<nav>` 補 `aria-label="主導覽"`、用 `<main id="main-content">` 包覆主要內容區塊。
   - 移除已失效的一次性 Logo 處理腳本 `sharpen_logo.py`（其參照的 `FineLinK_Logo_Rect.png` 已於前一波清理刪除）。
+- **GSC 結構化資料修正**：Google Search Console 網址審查回報 `3d-profiler.html` 的 `Product` schema 缺少必要欄位（必須指定 `offers`、`review` 或 `aggregateRating` 其中之一）。於 JSON-LD 補上 `offers` 區塊：因產品屬 B2B 客製報價型，採用 `priceSpecification`（含 `priceCurrency: TWD` 與「依規格客製報價」說明文字）取代寫死的數字價格，避免出現「價格為 0」的誤導性警告，並透過 `url` 連結到首頁聯絡區、`seller` 標示為佳聯光學科技。
 
 ---
 
