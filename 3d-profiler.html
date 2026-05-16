@@ -4,11 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="專為高反射、透明、軟性材料與精密結構量測需求所打造，提供非接觸式高精度輪廓量測能力，可應用於翹曲、厚度、平坦度、表面輪廓與精密結構檢測。">
-    <title>3D 輪廓量測設備 | 佳聯光學科技股份有限公司</title>
+    <meta name="description" content="高精度 3D 輪廓量測設備：採用 FPP 結構光技術，專為高反射、透明、軟性材料與精密結構量測需求打造，提供非接觸式微米級量測能力，整合 AI 偵測與 OCR 應用。">
+    <title>高精度 3D 輪廓量測設備 | 佳聯光學科技</title>
+    <link rel="canonical" href="https://www.finelinkopt.com/3d-profiler.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="product">
+    <meta property="og:site_name" content="佳聯光學科技">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:url" content="https://www.finelinkopt.com/3d-profiler.html">
+    <meta property="og:title" content="高精度 3D 輪廓量測設備 | 佳聯光學科技">
+    <meta property="og:description" content="FPP 結構光技術，微米級精度，專為高反射、透明、軟性材料與精密結構量測打造。">
+    <meta property="og:image" content="https://www.finelinkopt.com/assets/3D%E6%AA%A2%E6%B8%AC/FineLink%E5%A4%96%E8%A7%80%E5%9C%96.png">
+    <meta property="og:image:alt" content="佳聯光學科技 — 桌上型 3D 輪廓量測設備">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="高精度 3D 輪廓量測設備 | 佳聯光學科技">
+    <meta name="twitter:description" content="FPP 結構光技術，微米級精度，整合 AI 偵測與 OCR。">
+    <meta name="twitter:image" content="https://www.finelinkopt.com/assets/3D%E6%AA%A2%E6%B8%AC/FineLink%E5%A4%96%E8%A7%80%E5%9C%96.png">
+
     <!-- Favicon / App Icon -->
     <link rel="icon" type="image/png" href="./assets/FineLinK_Logo_Rect1.png">
     <link rel="apple-touch-icon" href="./assets/FineLinK_Logo_Rect1.png">
+
+    <!-- Structured Data: Product -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "高精度 3D 輪廓量測設備",
+      "category": "工業檢測設備 / 3D 量測",
+      "description": "採用 FPP (Fringe Projection Profilometry) 結構光技術，提供非接觸式微米級 3D 輪廓量測，適用於高反射、透明、軟性材料與精密結構檢測，整合 AI 偵測與 OCR 功能。",
+      "image": "https://www.finelinkopt.com/assets/3D%E6%AA%A2%E6%B8%AC/FineLink%E5%A4%96%E8%A7%80%E5%9C%96.png",
+      "url": "https://www.finelinkopt.com/3d-profiler.html",
+      "brand": {
+        "@type": "Brand",
+        "name": "FineLink Optical Technology"
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "佳聯光學科技股份有限公司",
+        "url": "https://www.finelinkopt.com/"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "製程量測能力 (Cg)",
+          "value": "1.15"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Z 軸變異中位數",
+          "value": "< 15 μm"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "局部雜訊穩定度",
+          "value": "0.06 ~ 0.07 mm"
+        }
+      ]
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,124 +73,11 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+TC:wght@300;400;700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/styles.css">
     <style>
-        :root {
-            --bg-color: #050b14;
-            --text-color: #e0e6ed;
-            --primary-color: #00e5ff;
-            --secondary-color: #4da6ff;
-            --accent-color: #7b2cbf;
-            --card-bg: rgba(16, 32, 56, 0.6);
-            --glass-bg: rgba(5, 11, 20, 0.85);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --transition-speed: 0.3s;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', 'Noto Sans TC', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        img {
-            -webkit-user-drag: none;
-            -khtml-user-drag: none;
-            -moz-user-drag: none;
-            -o-user-drag: none;
-            user-select: none;
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4 {
-            color: #ffffff;
-            font-weight: 700;
-        }
-
-        .gradient-text {
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 1.2rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        header h1 {
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-            font-weight: 900;
-            margin: 0;
-        }
-
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin-left: 30px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            transition: color var(--transition-speed);
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            transition: width var(--transition-speed);
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
-        nav a:hover::after {
-            width: 100%;
+        /* 3D Profiler 頁面採用較緊湊的 section 間距 */
+        section {
+            padding: 80px 5%;
         }
 
         .back-btn {
@@ -239,27 +183,6 @@
             font-size: 0.95rem;
         }
 
-        section {
-            padding: 80px 5%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--primary-color);
-            margin: 15px auto 0;
-            border-radius: 2px;
-        }
-
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -302,71 +225,7 @@
             font-size: 0.9rem;
         }
 
-        /* Reports Section */
-        .reports-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .report-card {
-            background: rgba(16, 32, 56, 0.4);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 25px;
-            display: flex;
-            align-items: center;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: var(--text-color);
-        }
-
-        .report-card:hover {
-            background: rgba(16, 32, 56, 0.8);
-            border-color: var(--primary-color);
-            transform: translateX(5px);
-        }
-
-        .report-icon {
-            font-size: 2.5rem;
-            color: #e25555;
-            /* PDF icon color */
-            margin-right: 20px;
-        }
-
-        .report-info h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: #fff;
-        }
-
-        .report-info p {
-            font-size: 0.85rem;
-            color: #8fa3b8;
-        }
-
-        footer {
-            background: #03060a;
-            padding: 30px 5%;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: 50px;
-        }
-
-        footer p {
-            color: #6c8299;
-            font-size: 0.9rem;
-        }
-
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                padding: 15px;
-                gap: 15px;
-            }
-
             .hero-title {
                 font-size: 2.2rem;
             }

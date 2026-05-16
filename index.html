@@ -4,11 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="佳聯光學科技提供工業級 AI 決策視覺模組與設備嵌入整合，專注於解決自動化生產中的視覺挑戰。">
+    <meta name="description" content="佳聯光學科技 (FineLink Optical Technology)：工業級 AI 決策視覺模組、3D 輪廓量測與設備嵌入整合，解決自動化生產的視覺挑戰。">
     <title>佳聯光學科技股份有限公司 | 決策級視覺模組夥伴</title>
+    <link rel="canonical" href="https://www.finelinkopt.com/">
+
+    <!-- Open Graph / Facebook / LINE -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="佳聯光學科技">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:url" content="https://www.finelinkopt.com/">
+    <meta property="og:title" content="佳聯光學科技股份有限公司 | 決策級視覺模組夥伴">
+    <meta property="og:description" content="工業級 AI 決策視覺模組、3D 輪廓量測與設備嵌入整合，專注於解決自動化生產中的視覺挑戰。">
+    <meta property="og:image" content="https://www.finelinkopt.com/assets/PXL_20240925_064857239.jpg">
+    <meta property="og:image:width" content="1920">
+    <meta property="og:image:height" content="1441">
+    <meta property="og:image:alt" content="佳聯光學科技 — 工業級視覺檢測現場">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="佳聯光學科技股份有限公司 | 決策級視覺模組夥伴">
+    <meta name="twitter:description" content="工業級 AI 決策視覺模組、3D 輪廓量測與設備嵌入整合。">
+    <meta name="twitter:image" content="https://www.finelinkopt.com/assets/PXL_20240925_064857239.jpg">
+
     <!-- Favicon / App Icon -->
     <link rel="icon" type="image/png" href="./assets/FineLinK_Logo_Rect1.png">
     <link rel="apple-touch-icon" href="./assets/FineLinK_Logo_Rect1.png">
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "佳聯光學科技股份有限公司",
+      "alternateName": "FineLink Optical Technology",
+      "url": "https://www.finelinkopt.com/",
+      "logo": "https://www.finelinkopt.com/assets/FineLinK_Logo_New.png",
+      "image": "https://www.finelinkopt.com/assets/PXL_20240925_064857239.jpg",
+      "description": "提供工業級 AI 決策視覺模組、3D 輪廓量測與設備嵌入整合，專注於解決自動化生產中的視覺挑戰。",
+      "slogan": "Beyond Seeing, Smart Thinking, Exact Doing.",
+      "taxID": "95482843",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "站前北路1號4樓",
+        "addressLocality": "左營區",
+        "addressRegion": "高雄市",
+        "postalCode": "813014",
+        "addressCountry": "TW"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+886-987-290-747",
+        "email": "jim_wang@finelinkopt.com",
+        "contactType": "sales",
+        "areaServed": "TW",
+        "availableLanguage": ["zh-TW", "en"]
+      }
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,132 +68,8 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+TC:wght@300;400;700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/styles.css">
     <style>
-        :root {
-            --bg-color: #050b14;
-            --text-color: #e0e6ed;
-            --primary-color: #00e5ff;
-            --secondary-color: #4da6ff;
-            --accent-color: #7b2cbf;
-            --card-bg: rgba(16, 32, 56, 0.6);
-            --glass-bg: rgba(5, 11, 20, 0.85);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --transition-speed: 0.3s;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', 'Noto Sans TC', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Protect Images */
-        img {
-            -webkit-user-drag: none;
-            -khtml-user-drag: none;
-            -moz-user-drag: none;
-            -o-user-drag: none;
-            user-select: none;
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            /* pointer-events: none; Removed as it causes display/interaction issues on mobile */
-        }
-
-        /* Typography */
-        h1,
-        h2,
-        h3,
-        h4 {
-            color: #ffffff;
-            font-weight: 700;
-        }
-
-        .gradient-text {
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Animations */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Header (Glassmorphism) */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 1.2rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            transition: all var(--transition-speed) ease;
-        }
-
-        header h1 {
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-            font-weight: 900;
-            margin: 0;
-        }
-
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin-left: 30px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            transition: color var(--transition-speed);
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            transition: width var(--transition-speed);
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
         /* Hero Section */
         .hero {
             position: relative;
@@ -204,28 +132,6 @@
             color: var(--bg-color);
             box-shadow: 0 0 25px rgba(0, 229, 255, 0.6);
             transform: translateY(-2px);
-        }
-
-        /* Section Global */
-        section {
-            padding: 100px 5%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--primary-color);
-            margin: 15px auto 0;
-            border-radius: 2px;
         }
 
         /* Services Grid */
@@ -407,19 +313,6 @@
             font-size: 1.3rem;
         }
 
-        /* Footer */
-        footer {
-            background: #03060a;
-            padding: 30px 5%;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        footer p {
-            color: #6c8299;
-            font-size: 0.9rem;
-        }
-
         /* Responsive */
         @media (max-width: 900px) {
             .adv-container {
@@ -434,11 +327,6 @@
         @media (max-width: 768px) {
             .hero h2 {
                 font-size: 2.5rem;
-            }
-
-            header {
-                flex-direction: column;
-                padding: 15px;
             }
 
             nav {

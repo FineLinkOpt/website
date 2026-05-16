@@ -75,3 +75,8 @@
 - 移除「軟體核心功能與演算法」區塊中所有項目標題後方的英文備註 (如 Multi-Frequency FPP, HDR Fusion, Stitching, Template Editor 等)，使版面更為清爽且專注於中文的技術傳達。
 - 更新 Hero 設備介紹區塊中「微米級精度掃描」的描述，將原本的「結合 3D 結構光與 FPP 技術」精確修正為「運用 FPP 3D 結構光技術」，使語句更為專業順暢。
 - 再次優化 Hero 設備介紹區塊的文案，將「專為極端應用打造」改為「專為嚴苛檢測需求打造」，並將說明更正為「完美克服金屬高反光與深色吸光材質帶來的取像干擾，實現高穩定度的精密量測」，精確強調 FPP 技術在處理極端光學特性材質上的優勢。
+- 為 Claude Code 建立 `CLAUDE.md` 工作指引，記錄專案結構、共用慣例（圖片保護、資產容量限制）以及內容更新流程，協助後續維護的一致性。
+- **效能優化**：將首頁 hero 背景圖 `PXL_20240925_064857239.jpg` 從原始 4.9 MB 壓縮並縮放至 1920px 寬，減為 419 KB（約 -92%），首屏載入速度大幅提升。
+- **資產清理**：刪除 `assets/` 內所有未引用且體積偏大的影音與圖片檔（含 30 MB 的未引用 mp4、52 MB 的未壓縮 PNG、8.6 MB 的標註圖等），並一併移除存放於公開 repo 內的中小企業創新研究獎申請書 PDF 與內部 3DWarp 系統技術／市場策略報告 (.txt/.pdf)，避免敏感資料外洩。
+- **共用樣式抽取**：將兩支 HTML 重複的 `:root`、reset、header、nav、`.section-title`、footer 等 ~170 行樣式抽出至 `assets/styles.css`，並順手清除 3d-profiler.html 內已不再使用的 `.report-*` dead CSS。`index.html` 行數由 672 → 508，`3d-profiler.html` 由 503 → 305。
+- **SEO 與社群分享優化**：兩支 HTML 補上 `<link rel="canonical">`、Open Graph (`og:*`) 與 Twitter Card meta，使 LINE／Facebook／Slack 分享時能顯示預覽圖文；同步加入 Schema.org JSON-LD 結構化資料 — 首頁為 `Organization`（含公司名、Logo、地址、電話、統編），3D 產品頁為 `Product`（含 Cg、Z 軸變異等規格 `additionalProperty`），有助於 Google 搜尋顯示企業資訊框與富摘要。

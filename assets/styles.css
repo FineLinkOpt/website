@@ -1,0 +1,172 @@
+/* ==========================================================================
+   FineLink 共用樣式表
+   兩支 HTML (index.html, 3d-profiler.html) 共用的設計 token、reset、
+   header / nav、section 標題、footer 與圖片保護等基底樣式。
+   頁面專屬樣式（hero、case-card、gallery-item 等）仍寫在各頁面的 <style>。
+   ========================================================================== */
+
+:root {
+    --bg-color: #050b14;
+    --text-color: #e0e6ed;
+    --primary-color: #00e5ff;
+    --secondary-color: #4da6ff;
+    --accent-color: #7b2cbf;
+    --card-bg: rgba(16, 32, 56, 0.6);
+    --glass-bg: rgba(5, 11, 20, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', 'Noto Sans TC', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Image protection — 行動裝置不可加入 pointer-events: none，會讓圖片無法顯示 */
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header (Glassmorphism) */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1.2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transition: all var(--transition-speed) ease;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    font-weight: 900;
+    margin: 0;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: color var(--transition-speed);
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width var(--transition-speed);
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Section base */
+section {
+    padding: 100px 5%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* Footer */
+footer {
+    background: #03060a;
+    padding: 30px 5%;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer p {
+    color: #6c8299;
+    font-size: 0.9rem;
+}
+
+/* Shared responsive header */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+}
