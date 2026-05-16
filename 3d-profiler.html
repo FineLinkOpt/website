@@ -239,17 +239,21 @@
 
 <body>
 
+    <a class="skip-link" href="#main-content">跳至主內容</a>
+
     <header>
         <div class="logo-container" style="display: flex; align-items: center; gap: 15px;">
             <img oncontextmenu='return false;' draggable='false' src="./assets/FineLinK_Logo_New.png"
-                alt="FineLink Logo"
+                alt="FineLink 佳聯光學科技 Logo" width="379" height="57"
                 style="height: 26px; width: auto; filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.7));">
             <h1>佳聯光學科技</h1>
         </div>
-        <nav>
+        <nav aria-label="主導覽">
             <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> 回首頁</a>
         </nav>
     </header>
+
+    <main id="main-content">
 
     <section class="hero">
         <h2 class="hero-title">高精度 <span class="gradient-text">3D 輪廓量測</span>設備</h2>
@@ -257,8 +261,10 @@
 
         <div class="product-showcase">
             <div class="product-image-container">
-                <img oncontextmenu='return false;' draggable='false' src="./assets/3D檢測/FineLink外觀圖.png"
-                    alt="3D 輪廓量測設備外觀圖">
+                <img oncontextmenu='return false;' draggable='false'
+                    width="1684" height="1684"
+                    src="./assets/3D檢測/FineLink外觀圖.png"
+                    alt="桌上型 3D 輪廓量測設備外觀">
             </div>
             <div class="product-details">
                 <ul class="feature-list">
@@ -300,13 +306,17 @@
         <div class="gallery-grid"
             style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); max-width: 1000px; margin: 0 auto;">
             <div class="gallery-item">
-                <img oncontextmenu='return false;' draggable='false' src="./assets/3D檢測/2.png" alt="3D 影像拼接分析">
+                <img oncontextmenu='return false;' draggable='false' loading="lazy"
+                    width="1176" height="753"
+                    src="./assets/3D檢測/2.png" alt="大視野 3D 拼接高度圖分析">
                 <h4>大視野 3D 拼接分析</h4>
                 <p>完整還原大尺寸元件的 3D 全貌，呈現整體翹曲與平整度趨勢，讓跨視野檢測不再有死角。</p>
             </div>
             <div class="gallery-item">
-                <img oncontextmenu='return false;' draggable='false' src="./assets/3D檢測/螢幕擷取畫面 2026-05-16 142453.png"
-                    alt="軟體操作介面">
+                <img oncontextmenu='return false;' draggable='false' loading="lazy"
+                    width="1224" height="862"
+                    src="./assets/3D檢測/螢幕擷取畫面 2026-05-16 142453.png"
+                    alt="3D 量測軟體剖面分析操作介面">
                 <h4>整合式量測平台</h4>
                 <p>內建剖面分析與數據匯出工具，滿足產線品管與研發單位的進階分析需求。</p>
             </div>
@@ -345,6 +355,8 @@
                     Repeatability)</strong>：Z 軸變異中位數 < 15 μm (P95 < 26.39 μm)，最佳單點量測變異可達 1.7 μm，展現極低雜訊。</li>
         </ul>
     </section>
+
+    </main>
 
     <footer>
         <p>&copy; 2026 佳聯光學科技股份有限公司 FineLink Optical Technology. All rights reserved.</p>

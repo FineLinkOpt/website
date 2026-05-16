@@ -81,7 +81,6 @@
             padding: 120px 20px 60px;
             background: linear-gradient(to bottom, rgba(5, 11, 20, 0.85), rgba(5, 11, 20, 1)),
                 url('./assets/PXL_20240925_064857239.jpg') center/cover no-repeat;
-            background-attachment: fixed;
         }
 
         .hero-content {
@@ -343,14 +342,16 @@
 
 <body>
 
+    <a class="skip-link" href="#main-content">跳至主內容</a>
+
     <header>
         <div class="logo-container" style="display: flex; align-items: center; gap: 15px;">
             <img oncontextmenu='return false;' draggable='false' src="./assets/FineLinK_Logo_New.png"
-                alt="FineLink Logo"
+                alt="FineLink 佳聯光學科技 Logo" width="379" height="57"
                 style="height: 26px; width: auto; filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.7));">
             <h1>佳聯光學科技</h1>
         </div>
-        <nav>
+        <nav aria-label="主導覽">
             <a href="#home">首頁</a>
             <a href="#about">關於我們</a>
             <a href="#services">技術方案</a>
@@ -359,6 +360,8 @@
             <a href="#contact">聯絡合作</a>
         </nav>
     </header>
+
+    <main id="main-content">
 
     <section class="hero" id="home">
         <div class="hero-content">
@@ -388,15 +391,18 @@
         <h2 class="section-title">核心技術與解決方案</h2>
         <div class="services-grid">
             <div class="service-card">
-                <img oncontextmenu='return false;' draggable='false'
-                    src="./assets/2025-12-11_17-27-09_188_annotated.jpg" alt="AI 視覺檢測" class="service-image">
+                <img oncontextmenu='return false;' draggable='false' loading="lazy"
+                    width="800" height="600"
+                    src="./assets/2025-12-11_17-27-09_188_annotated.jpg" alt="AI 視覺檢測模組標註瑕疵示意" class="service-image">
                 <div class="service-icon"><i class="fa-solid fa-microchip"></i></div>
                 <h3>AI 視覺檢測模組</h3>
                 <p>運用先進深度學習技術，精準解決複雜特徵辨識。適用於各類工業產品的外觀瑕疵檢測、精密量測與高準確度的字元識別 (OCR)。</p>
             </div>
             <div class="service-card" style="cursor: pointer;" onclick="window.location.href='3d-profiler.html'">
-                <img oncontextmenu='return false;' draggable='false' src="./assets/螢幕擷取畫面 2026-02-26 182108.jpg"
-                    alt="3D 輪廓量測" class="service-image">
+                <img oncontextmenu='return false;' draggable='false' loading="lazy"
+                    width="988" height="600"
+                    src="./assets/螢幕擷取畫面 2026-02-26 182108.jpg"
+                    alt="3D 輪廓量測軟體高度圖介面" class="service-image">
                 <div class="service-icon"><i class="fa-solid fa-cube"></i></div>
                 <h3>3D 輪廓量測技術</h3>
                 <p>完美整合 Fringe Projection Profilometry (FPP) 相位偏移技術，提供微米級的高精度三維形貌掃描，達成嚴苛的幾何品質控管要求。<br><span
@@ -404,8 +410,10 @@
                         <i class="fa-solid fa-arrow-right"></i></span></p>
             </div>
             <div class="service-card">
-                <img oncontextmenu='return false;' draggable='false' src="./assets/PXL_20240926_035737463.jpg"
-                    alt="AOI 整合開發平台" class="service-image">
+                <img oncontextmenu='return false;' draggable='false' loading="lazy"
+                    width="1387" height="1041"
+                    src="./assets/PXL_20240926_035737463.jpg"
+                    alt="AOI 整合設備現場機台" class="service-image">
                 <div class="service-icon"><i class="fa-solid fa-code-branch"></i></div>
                 <h3>AOI 整合開發平台</h3>
                 <p>專為設備開發商量身打造的軟體平台。無縫整合硬體控制與 AI 算力。支援主流 PLC 通訊協定 (Modbus,
@@ -450,8 +458,10 @@
         <h2 class="section-title">實戰案例</h2>
         <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
             <div class="service-card" style="display: flex; flex-direction: column;">
-                <img oncontextmenu='return false;' draggable='false' src="./assets/PXL_20250421_084229985.jpg"
-                    alt="極端環境 3D 量測" class="service-image" style="height: 250px;">
+                <img oncontextmenu='return false;' draggable='false' loading="lazy"
+                    width="1019" height="764"
+                    src="./assets/PXL_20250421_084229985.jpg"
+                    alt="鋼鐵廠酸洗產線 3D 量測現場" class="service-image" style="height: 250px;">
                 <h3 style="color: var(--primary-color); font-size: 1.3rem; margin-top: 10px;"><i
                         class="fa-solid fa-flask-vial" style="margin-right: 10px;"></i>極端環境的 3D 量測</h3>
                 <h4 style="color: #fff; margin-bottom: 15px; font-size: 1.1rem; font-weight: 600;">某國內大型鋼鐵廠</h4>
@@ -462,8 +472,10 @@
                 </p>
             </div>
             <div class="service-card" style="display: flex; flex-direction: column;">
-                <img oncontextmenu='return false;' draggable='false' src="./assets/PXL_20240925_065155840.jpg"
-                    alt="設備 AI 賦能" class="service-image" style="height: 250px;">
+                <img oncontextmenu='return false;' draggable='false' loading="lazy"
+                    width="1387" height="1041"
+                    src="./assets/PXL_20240925_065155840.jpg"
+                    alt="偏光板清潔機自動分揀辨識系統現場" class="service-image" style="height: 250px;">
                 <h3 style="color: var(--primary-color); font-size: 1.3rem; margin-top: 10px;"><i
                         class="fa-solid fa-box-open" style="margin-right: 10px;"></i>自動化設備的 AI 賦能</h3>
                 <h4 style="color: #fff; margin-bottom: 15px; font-size: 1.1rem; font-weight: 600;">偏光板清潔機自動分揀辨識系統</h4>
@@ -475,7 +487,7 @@
                 </p>
             </div>
             <div class="service-card" style="display: flex; flex-direction: column;">
-                <video autoplay loop muted playsinline oncontextmenu='return false;'
+                <video autoplay loop muted playsinline preload="metadata" oncontextmenu='return false;'
                     style="width: 100%; height: auto; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 20px;">
                     <source src="./assets/ClassifyCenter.mp4" type="video/mp4">
                     您的瀏覽器不支援影片播放。
@@ -495,7 +507,7 @@
             </div>
 
             <div class="service-card" style="display: flex; flex-direction: column;">
-                <video autoplay loop muted playsinline oncontextmenu='return false;'
+                <video autoplay loop muted playsinline preload="metadata" oncontextmenu='return false;'
                     style="width: 100%; height: auto; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 20px;">
                     <source src="./assets/ObjectDetect.mp4" type="video/mp4">
                     您的瀏覽器不支援影片播放。
@@ -543,6 +555,8 @@
             </div>
         </div>
     </section>
+
+    </main>
 
     <footer>
         <p>&copy; 2026 佳聯光學科技股份有限公司 FineLink Optical Technology. All rights reserved.</p>

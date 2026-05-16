@@ -80,3 +80,11 @@
 - **資產清理**：刪除 `assets/` 內所有未引用且體積偏大的影音與圖片檔（含 30 MB 的未引用 mp4、52 MB 的未壓縮 PNG、8.6 MB 的標註圖等），並一併移除存放於公開 repo 內的中小企業創新研究獎申請書 PDF 與內部 3DWarp 系統技術／市場策略報告 (.txt/.pdf)，避免敏感資料外洩。
 - **共用樣式抽取**：將兩支 HTML 重複的 `:root`、reset、header、nav、`.section-title`、footer 等 ~170 行樣式抽出至 `assets/styles.css`，並順手清除 3d-profiler.html 內已不再使用的 `.report-*` dead CSS。`index.html` 行數由 672 → 508，`3d-profiler.html` 由 503 → 305。
 - **SEO 與社群分享優化**：兩支 HTML 補上 `<link rel="canonical">`、Open Graph (`og:*`) 與 Twitter Card meta，使 LINE／Facebook／Slack 分享時能顯示預覽圖文；同步加入 Schema.org JSON-LD 結構化資料 — 首頁為 `Organization`（含公司名、Logo、地址、電話、統編），3D 產品頁為 `Product`（含 Cg、Z 軸變異等規格 `additionalProperty`），有助於 Google 搜尋顯示企業資訊框與富摘要。
+- **第二波優化 (2026-05-16 晚)**：
+  - 所有 `<img>` 補上 `width`/`height` 屬性（依實際像素），非首屏圖再加 `loading="lazy"`，行動裝置滑到才下載，且消除版面位移 (CLS)。`alt` 文字一併改寫為更具描述性的版本。
+  - 兩部案例影片加 `preload="metadata"`，避免行動裝置在進站當下就先抓整段影片。
+  - 新增 `robots.txt` 與 `sitemap.xml`（含首頁與 3D 產品頁），加速 Google 收錄。
+  - 新增 `404.html`，承襲整站視覺風格、提供返回首頁按鈕（取代 GitHub Pages 預設 404）。
+  - hero 區塊移除 `background-attachment: fixed`，避免 iOS Safari 上背景圖跳動或無法顯示的問題。
+  - a11y：兩頁加入「跳至主內容」鍵盤捷徑、為 `<nav>` 補 `aria-label="主導覽"`、用 `<main id="main-content">` 包覆主要內容區塊。
+  - 移除已失效的一次性 Logo 處理腳本 `sharpen_logo.py`（其參照的 `FineLinK_Logo_Rect.png` 已於前一波清理刪除）。

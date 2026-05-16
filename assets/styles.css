@@ -35,6 +35,27 @@ body {
     overflow-x: hidden;
 }
 
+/* Accessibility: skip-to-content link，僅在鍵盤聚焦時可見 */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: var(--primary-color);
+    color: var(--bg-color);
+    padding: 12px 20px;
+    font-weight: 700;
+    text-decoration: none;
+    z-index: 2000;
+    border-radius: 0 0 8px 0;
+    transition: top var(--transition-speed);
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
 /* Image protection — 行動裝置不可加入 pointer-events: none，會讓圖片無法顯示 */
 img {
     -webkit-user-drag: none;
