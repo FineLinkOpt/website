@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="佳聯光學科技高精度 3D 輪廓量測設備，解決偏光板翹曲及記憶體模組元件缺陷偵測">
+    <title>3D 輪廓量測設備 | 佳聯光學科技股份有限公司</title>
+    <!-- Favicon / App Icon -->
+    <link rel="icon" type="image/png" href="./assets/FineLinK_Logo_Rect1.png">
+    <link rel="apple-touch-icon" href="./assets/FineLinK_Logo_Rect1.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+TC:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #050b14;
+            --text-color: #e0e6ed;
+            --primary-color: #00e5ff;
+            --secondary-color: #4da6ff;
+            --accent-color: #7b2cbf;
+            --card-bg: rgba(16, 32, 56, 0.6);
+            --glass-bg: rgba(5, 11, 20, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            font-weight: 900;
+            margin: 0;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color var(--transition-speed);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width var(--transition-speed);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color var(--transition-speed);
+        }
+
+        .back-btn i {
+            margin-right: 8px;
+        }
+
+        .back-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            position: relative;
+            padding: 150px 5% 80px;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(16, 32, 56, 0.8), var(--bg-color) 70%);
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: #b0c4de;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            animation: fadeUp 1s ease-out forwards;
+        }
+
+        .product-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeUp 1.2s ease-out forwards;
+        }
+
+        .product-image-container {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            background: var(--card-bg);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product-image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .product-details {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            margin-top: 2px;
+        }
+
+        .feature-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .feature-text p {
+            color: #a0b2c6;
+            font-size: 0.95rem;
+        }
+
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 20px;
+            transition: all var(--transition-speed);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 229, 255, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gallery-item h4 {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .gallery-item p {
+            color: #a0b2c6;
+            font-size: 0.9rem;
+        }
+
+        /* Reports Section */
+        .reports-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .report-card {
+            background: rgba(16, 32, 56, 0.4);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .report-card:hover {
+            background: rgba(16, 32, 56, 0.8);
+            border-color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .report-icon {
+            font-size: 2.5rem;
+            color: #e25555;
+            /* PDF icon color */
+            margin-right: 20px;
+        }
+
+        .report-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .report-info p {
+            font-size: 0.85rem;
+            color: #8fa3b8;
+        }
+
+        footer {
+            background: #03060a;
+            padding: 30px 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 50px;
+        }
+
+        footer p {
+            color: #6c8299;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-container" style="display: flex; align-items: center; gap: 15px;">
+            <img oncontextmenu='return false;' draggable='false' src="./assets/FineLinK_Logo_New.png"
+                alt="FineLink Logo"
+                style="height: 26px; width: auto; filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.7));">
+            <h1>佳聯光學科技</h1>
+        </div>
+        <nav>
+            <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> 回首頁</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2 class="hero-title">高精度 <span class="gradient-text">3D 輪廓量測</span>設備</h2>
+        <p class="hero-desc">專為微米級檢測打造。完美應用於偏光板翹曲與記憶體模組缺陷分析，將相位偏移技術 (FPP) 轉化為穩定可靠的產線戰力。</p>
+
+        <div class="product-showcase">
+            <div class="product-image-container">
+                <img oncontextmenu='return false;' draggable='false' src="./assets/3D檢測/FineLink外觀圖.png"
+                    alt="3D 輪廓量測設備外觀圖">
+            </div>
+            <div class="product-details">
+                <ul class="feature-list">
+                    <li>
+                        <div class="feature-icon"><i class="fa-solid fa-microscope"></i></div>
+                        <div class="feature-text">
+                            <h4>微米級精度掃描</h4>
+                            <p>結合 3D 結構光與 FPP 技術，高解析重建表面形貌，精準捕捉微細瑕疵。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="feature-text">
+                            <h4>專為極端應用打造</h4>
+                            <p>專治偏光板翹曲與高密度記憶體模組檢測，克服複雜表面難題。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feature-icon"><i class="fa-solid fa-desktop"></i></div>
+                        <div class="feature-text">
+                            <h4>一體化單機設計</h4>
+                            <p>緊湊型桌上架構，內建 3D 視覺化軟體，隨插即用，降低導入門檻。</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: #081221;">
+        <h2 class="section-title">直覺的 3D 視覺化分析</h2>
+        <div class="gallery-grid"
+            style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); max-width: 1000px; margin: 0 auto;">
+            <div class="gallery-item">
+                <img oncontextmenu='return false;' draggable='false' src="./assets/3D檢測/2.png" alt="缺陷偵測介面">
+                <h4>元件缺陷與高度落差分析</h4>
+                <p>自動提取高度數據並標定異常，精準檢測記憶體等精密元件的組裝公差與瑕疵。</p>
+            </div>
+            <div class="gallery-item">
+                <img oncontextmenu='return false;' draggable='false' src="./assets/3D檢測/螢幕擷取畫面 2026-05-16 142453.png"
+                    alt="軟體操作介面">
+                <h4>整合式量測平台</h4>
+                <p>內建剖面分析與數據匯出工具，滿足產線品管與研發單位的進階分析需求。</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">軟體核心功能與演算法</h2>
+        <p
+            style="text-align: center; color: #b0c4de; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            自主開發 Warpage 3D 檢測軟體，深度整合光機與演算法，具備以下進階功能：
+        </p>
+        <ul
+            style="max-width: 800px; margin: 0 auto; padding-left: 20px; font-size: 1.15rem; line-height: 1.8; color: #e2e8f0; list-style-type: disc;">
+            <li style="margin-bottom: 15px;"><strong style="color: var(--primary-color);">多頻相位解碼 (Multi-Frequency
+                    FPP)</strong>：結合 FFT 與時間解相，高抗噪且精準重建微米級 3D 點雲與高度圖。</li>
+            <li style="margin-bottom: 15px;"><strong style="color: var(--primary-color);">高動態範圍融合 (HDR
+                    Fusion)</strong>：多重曝光自動融合，克服金屬反光與深色吸光材質，保留所有細節。</li>
+            <li style="margin-bottom: 15px;"><strong style="color: var(--primary-color);">大視野拼接技術
+                    (Stitching)</strong>：支援多圖高精度拼接，突破單鏡頭視野限制，適用大尺寸偏光板檢測。</li>
+            <li style="margin-bottom: 15px;"><strong style="color: var(--primary-color);">AI
+                    輔助與彈性配方編輯</strong>：結合深度學習與樣板編輯器 (Template Editor)，快速建立 ROI，實現靈活換線。</li>
+            <li style="margin-bottom: 15px;"><strong style="color: var(--primary-color);">即時 3D 渲染與量測分析</strong>：全彩 3D
+                流暢視角，自動化執行高度落差、平整度與微細瑕疵判讀。</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 class="section-title">工業級精度規格</h2>
+        <p
+            style="text-align: center; color: #b0c4de; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
+            嚴謹的儀器檢驗分析，確保在複雜生產環境中維持穩定度與微米級極致精度。
+        </p>
+        <ul
+            style="max-width: 800px; margin: 0 auto; padding-left: 20px; font-size: 1.15rem; line-height: 1.8; color: #e2e8f0; list-style-type: disc;">
+            <li style="margin-bottom: 15px;"><strong style="color: var(--primary-color);">製程量測能力 (Gage
+                    Capability)</strong>：能力指數 Cg = 1.15，具備檢驗 ±0.15 mm (總公差 0.3mm) 等級之高可靠度。</li>
+            <li style="margin-bottom: 15px;"><strong style="color: var(--primary-color);">靜態重複精度 (Static
+                    Repeatability)</strong>：Z 軸變異中位數 < 15 μm (P95 < 26.39 μm)，最佳單點量測變異可達 1.7 μm，展現極低雜訊。</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 佳聯光學科技股份有限公司 FineLink Optical Technology. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Prevent right-click (context menu) on all images
+        document.addEventListener('contextmenu', function (e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>
