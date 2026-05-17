@@ -43,7 +43,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 內容更新流程
 
-`docs/WORK_STATUS_REPORT.md` 是繁體中文的時序變更紀錄，依日期分節（例如 `## 2026-05-16 評估 3D 量測擴充素材`）。完成任何具體內容或資產修改後，請在當天的日期區塊下追加一筆條列（若該日期區塊尚未建立則新增之）。少數重大文案決策另存於 `docs/WEB.CONTENT-*.md`，僅在被明確要求時才仿此模式建立新檔。
+`docs/WORK_STATUS_REPORT.md` 是繁體中文的時序變更紀錄，依日期分節（例如 `## 2026-05-16 評估 3D 量測擴充素材`）。完成任何具體內容或資產修改後，**一律在檔案最末追加紀錄**，不要插入既有日期區塊中間（即使該區塊就是今天）；需要時新建一個 `## YYYY-MM-DD <短標題>` 區塊接在檔尾。少數重大文案決策另存於 `docs/WEB.CONTENT-*.md`，僅在被明確要求時才仿此模式建立新檔。
 
 ## 設計 Token 參考
 
