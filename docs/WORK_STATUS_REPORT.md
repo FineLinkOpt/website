@@ -147,3 +147,14 @@
 ## 2026-05-17 修正 GSC 產品摘要結構化資料錯誤
 - 因 Google Search Console (GSC) 判定 `Product` 結構化資料內的 `offers` 必須包含 `price` 欄位（即使是 B2B 客製報價），否則會報出「必須指定「offers」、「review」或「aggregateRating」」的重大問題。
 - 於 `3d-profiler.html` 的 `application/ld+json` 內，在 `offers` 及 `priceSpecification` 中補上 `"price": "0"`，以符合 GSC 對 `Product` Snippet 的嚴格檢查標準，解決網頁無法正確呈現結構化資料的問題。
+
+## 2026-05-20 更新 3D 輪廓量測設備規格描述
+- 於 `3d-profiler.html` 網頁中，將「工業級精度規格」標題修改為「工業級規格」。
+- 更新其下方條列的詳細規格：
+  - 量測範圍：50*38*40 mm
+  - X、Y軸解析度：20 um
+  - Z軸解析度：15 um
+  - 元件級動態重複精度 (1σ)： ≤ 7.0 μm
+  - 資料點數：2592*1944
+- 同步更新 `3d-profiler.html` 的 Product JSON-LD 結構化資料中 `additionalProperty` 欄位以對齊網頁規格，提升 SEO 語意一致性。
+- 將「直覺的 3D 視覺化分析」區塊中，整合式量測平台的截圖由 `螢幕擷取畫面 2026-05-16 142453.png` 替換為最新的 `螢幕擷取畫面 2026-05-20 214944.png`。
