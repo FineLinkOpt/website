@@ -190,3 +190,15 @@
   - 重複精度兩欄統一為「元件級 / ROI 平均」之 1σ。
   - 結果：跨欄高精度均優於大視野（符合小視野較精細的直覺）；欄內單像素雜訊 ≥ 元件級重複精度（ROI 空間平均所致）。
   - 列標題去除「雜訊下限」字樣，註解新增解析度/重複精度之尺度定義說明。
+
+## 2026-05-29 圖片效能最佳化（WebP）
+- 全站較大圖片改為 WebP 交付，原 PNG/JPG 保留為 fallback，採漸進增強不破壞既有顯示。
+- 3d-profiler.html（5 張，PNG→WebP，省最多）：
+  - 產品主圖 FineLink外觀圖 3192KB → 48KB（並加 `fetchpriority="high"`，仍為首屏 eager 載入）。
+  - 軟體介面截圖 1000KB → 170KB、2.png 496→60KB、偏光板翹曲_3D彩現 531→42KB、偏光板翹曲_剖面分析 442→53KB。
+  - 整頁圖片量約 5.6MB → 0.37MB。
+- index.html（5 張內嵌 + 2 張 CSS 背景，JPG→WebP，省約 30%）：
+  - 內嵌圖以 `<picture>` 包裹 WebP source；hero 與 .adv-image 兩處 CSS 背景改用 `image-set()` 並保留 url() JPG fallback。
+  - og:image / twitter:image 維持指向 JPG（社群爬蟲相容性）。
+- `assets/styles.css` 新增 `picture { display: contents; }`，避免 `<picture>` 容器影響既有 flex/grid 與 `width:100%` 版面。
+- 防右鍵 JS 仍以 `e.target.tagName === 'IMG'` 命中 `<picture>` 內的 `<img>`，圖片保護不受影響。

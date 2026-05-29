@@ -68,6 +68,11 @@ img {
     -ms-user-select: none;
 }
 
+/* <picture> 僅作 WebP 來源容器，版面交由內部 <img> 決定（保留既有 flex/grid 與 width:100%） */
+picture {
+    display: contents;
+}
+
 h1,
 h2,
 h3,
