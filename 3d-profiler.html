@@ -255,6 +255,72 @@
             font-size: 0.9rem;
         }
 
+        .spec-table-wrap {
+            max-width: 860px;
+            margin: 0 auto;
+            overflow-x: auto;
+        }
+
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1rem;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .spec-table th,
+        .spec-table td {
+            padding: 14px 18px;
+            text-align: left;
+            border-bottom: 1px solid var(--glass-border);
+            vertical-align: top;
+        }
+
+        .spec-table thead th {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.05rem;
+            background: rgba(0, 229, 255, 0.06);
+        }
+
+        .spec-table thead th span {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 400;
+            color: #a0b2c6;
+            margin-top: 4px;
+        }
+
+        .spec-table tbody th {
+            color: #fff;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .spec-table td {
+            color: #e2e8f0;
+        }
+
+        .spec-table tbody tr:last-child th,
+        .spec-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .spec-table tbody tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .spec-note {
+            max-width: 860px;
+            margin: 24px auto 0;
+            color: #8da0b5;
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.2rem;
@@ -262,6 +328,12 @@
 
             .gallery-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .spec-table th,
+            .spec-table td {
+                padding: 10px 12px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -350,6 +422,22 @@
                 <h4>整合式量測平台</h4>
                 <p>內建剖面分析與數據匯出工具，滿足產線品管與研發單位的進階分析需求。</p>
             </div>
+            <div class="gallery-item">
+                <img oncontextmenu='return false;' draggable='false' loading="lazy"
+                    width="1102" height="832"
+                    src="./assets/3D檢測/偏光板翹曲_3D彩現.png"
+                    alt="偏光板翹曲 3D 彩現高度圖">
+                <h4>偏光板翹曲 3D 量測</h4>
+                <p>大面積偏光板完整翹曲形貌一覽無遺，立體彩現直觀呈現高低起伏，協助快速判定平整度與變形趨勢。</p>
+            </div>
+            <div class="gallery-item">
+                <img oncontextmenu='return false;' draggable='false' loading="lazy"
+                    width="1255" height="832"
+                    src="./assets/3D檢測/偏光板翹曲_剖面分析.png"
+                    alt="偏光板翹曲高度圖與對角剖面量測">
+                <h4>大尺寸剖面量測</h4>
+                <p>支援逾 180 mm 大視野的高度圖與任意剖面分析，精準擷取跨面翹曲量與關鍵尺寸。</p>
+            </div>
         </div>
     </section>
 
@@ -375,16 +463,52 @@
         <h2 class="section-title">工業級規格</h2>
         <p
             style="text-align: center; color: #b0c4de; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;">
-            嚴謹的儀器檢驗分析，確保在複雜生產環境中維持穩定度與微米級極致精度。
+            依工件尺寸提供兩種量測配置：高精度模式聚焦元件級微米量測，大視野翹曲模式則涵蓋大尺寸面板的整體變形檢測。
         </p>
-        <ul
-            style="max-width: 800px; margin: 0 auto; padding-left: 20px; font-size: 1.15rem; line-height: 1.8; color: #e2e8f0; list-style-type: disc;">
-            <li style="margin-bottom: 15px;"><strong style="color: var(--primary-color);">量測範圍</strong>：50*38*40 mm</li>
-            <li style="margin-bottom: 15px;"><strong style="color: var(--primary-color);">X、Y軸解析度</strong>：20 um</li>
-            <li style="margin-bottom: 15px;"><strong style="color: var(--primary-color);">Z軸解析度</strong>：15 um</li>
-            <li style="margin-bottom: 15px;"><strong style="color: var(--primary-color);">元件級動態重複精度 (1σ)</strong>：≤ 7.0 μm</li>
-            <li style="margin-bottom: 15px;"><strong style="color: var(--primary-color);">資料點數</strong>：2592*1944</li>
-        </ul>
+        <div class="spec-table-wrap">
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th scope="col">規格項目</th>
+                        <th scope="col">高精度模式<span>元件級精密量測</span></th>
+                        <th scope="col">大視野翹曲模式<span>大尺寸面板 / 偏光板</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">量測範圍 / 視野</th>
+                        <td>50 × 38 × 40 mm</td>
+                        <td>185 × 140 × 50 mm</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">X、Y 軸解析度</th>
+                        <td>20 μm/px</td>
+                        <td>72 μm/px</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Z 軸解析度 (1σ)</th>
+                        <td>15 μm</td>
+                        <td>20 μm</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">重複精度 (1σ)</th>
+                        <td>≤ 7 μm</td>
+                        <td>≤ 15 μm</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">資料點數</th>
+                        <td>2592 × 1944</td>
+                        <td>2592 × 1944</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="spec-note">
+            ※ Z 軸解析度為單像素靜態雜訊 (1σ)；重複精度為元件級（ROI 平均）後之 1σ 值，經空間平均故小於單像素雜訊。<br>
+            ※ 高精度模式重複精度為系統熱機（約 10 分鐘）後之量測結果，並經 Type-1 Gage 製程能力分析驗證：公差 ±66 μm 時 Cg ≥ 1.33（合格）、±83 μm 時 Cg ≥ 1.67（優）。<br>
+            ※ 大視野翹曲模式為階梯校正樣本之靜態量測結果，適用範圍為漫反射、平面 / 階梯狀工件。<br>
+            ※ 實際表現依工件材質、表面狀態與環境條件而異。
+        </p>
     </section>
 
     </main>
