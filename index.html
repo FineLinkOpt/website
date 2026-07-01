@@ -74,9 +74,10 @@
             position: relative; overflow: hidden;
             min-height: 88vh; display: flex; align-items: center; justify-content: center;
             padding: 150px 5% 90px;
-            /* 翡翠綠半透明色罩蓋在設備影像上,照片淡淡透出(較淡版) */
+            /* 翡翠綠半透明色罩蓋在設備影像上,照片淡淡透出;色階為亮模式主色 --fl-green-500,頭尾同色,視覺上是純色平塗、無漸層過渡
+               (CSS 語法限制:純色無法疊在背景圖片之上,故仍需以 linear-gradient 語法承載,但頭尾同色即為視覺上的純色平塗) */
             background:
-                linear-gradient(180deg, rgba(51,183,152,0.80) 0%, rgba(29,138,100,0.88) 100%),
+                linear-gradient(rgba(29,138,100,0.82), rgba(29,138,100,0.82)),
                 image-set(url('./assets/PXL_20240925_064857239.webp') type('image/webp'),
                     url('./assets/PXL_20240925_064857239.jpg') type('image/jpeg')) center/cover no-repeat;
         }

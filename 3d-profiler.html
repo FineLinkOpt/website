@@ -71,8 +71,10 @@
         .hero {
             position: relative; overflow: hidden;
             padding: 150px 5% 90px; text-align: center;
+            /* 色階為亮模式主色 --fl-green-500,頭尾同色,視覺上是純色平塗、無漸層過渡
+               (CSS 語法限制:純色無法疊在背景圖片之上,故仍需以 linear-gradient 語法承載,但頭尾同色即為視覺上的純色平塗) */
             background:
-                linear-gradient(180deg, rgba(51,183,152,0.80) 0%, rgba(29,138,100,0.88) 100%),
+                linear-gradient(rgba(29,138,100,0.82), rgba(29,138,100,0.82)),
                 image-set(url('./assets/3D檢測/FineLink外觀圖.webp') type('image/webp'),
                     url('./assets/3D檢測/FineLink外觀圖.png') type('image/png')) center/cover no-repeat;
         }
