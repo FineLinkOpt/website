@@ -202,3 +202,65 @@
   - og:image / twitter:image 維持指向 JPG（社群爬蟲相容性）。
 - `assets/styles.css` 新增 `picture { display: contents; }`，避免 `<picture>` 容器影響既有 flex/grid 與 `width:100%` 版面。
 - 防右鍵 JS 仍以 `e.target.tagName === 'IMG'` 命中 `<picture>` 內的 `<img>`，圖片保護不受影響。
+
+## 2026-07-01 品牌視覺規範對齊與雙模整合優化
+- **導入統一 Token 系統**：將 `assets/files/finelink-tokens.css` 複製至 `assets/` 目錄，並在 `assets/styles.css` 最上方載入它。重構 `:root` 變數使原有樣式全面映射至雙軌 Token，使全站無縫支援亮暗雙軌模式。
+- **等高線裝飾適配**：調整首頁與 3D 產品頁的 SVG 等高線色彩，改用自適應的 `--fl-topo-stroke` 變數（亮色下為 `var(--fl-green-200)` + opacity，暗色下為 `var(--fl-green-400)` + opacity），使其在各主題背景下皆呈淡雅、不搶戲的精密細節。
+- **實作主題切換器 (Theme Toggle)**：在首頁 (`index.html`) 與 3D 產品頁 (`3d-profiler.html`) 的導覽列右側新增極簡的太陽/月亮主題切換按鈕，並編寫輕量 JavaScript 事件監聽，支援自動偵測系統偏好並以 `localStorage` 記憶使用者的切換選擇，防範加載時的樣式閃爍 (FOUC)。
+- **3D 規格表雙模優化**：重構 `3d-profiler.html` 的規格表樣式，改用自適應的 `var(--fl-pass-bg)` 等語意 Token，使表格外觀在暗色模式下自動轉化為高對比的深綠色主題，解決暗色模式下亮綠表頭不協調的問題。
+- **重構 404 頁面**：全面重寫 `404.html` 的 CSS 樣式，徹底清除了舊有的「深海軍藍、青色漸層、霓虹發光、30px 大圓角」等 AI 味特徵。改用等寬字型呈現 404 編碼，整合 `finelink-tokens.css` 使其完美支援雙模切換，並保留了健全的主題記憶與返回首頁導覽。
+- **自動化驗證**：透過靜態伺服器與瀏覽器子代理進行了全站亮/暗色主題的切換與記憶測試，確認全站已無任何殘留 AI 特徵，視覺效果乾淨、精密且穩重。
+
+## 2026-07-01 首頁 Hero 改為翡翠綠底 + 白色不規則等高線
+- 依業主指定參考圖(綠底白線露營風 banner),將 `index.html` 首頁 Hero 由「淺色底 + 淡綠平行波線」改為「翡翠綠實底 (`--fl-green-500` #1D8A64) + 白色不規則等高線」。
+- 等高線 SVG:11 條規則平行波線 → 13 條白色 (`#ffffff`) 不規則曲線,垂直間距刻意不等、振幅微幅漂移,呈現有機等高線感;`.hero-topo` opacity 0.45 → 0.55、stroke-width 1.5 → 1.3、加 `stroke-linecap="round"`。
+- Hero 底:移除原 `.hero::before` 照片疊底 (opacity 0.12),改為純翡翠綠平塗;`background: var(--fl-canvas)` → `var(--fl-green-500)`。
+- 綠底可讀性調整(僅 scope 在 `.hero` 內,不影響其他區塊):
+  - h2 標題改 `--fl-green-50` 淡霧綠、關鍵字 `.gradient-text` 改純白 `#fff` 作強調對比。
+  - slogan `rgba(255,255,255,0.82)`、lead `rgba(255,255,255,0.9)`。
+  - CTA 反白:主按鈕白底綠字、次按鈕透明底白字白框,維持對比。
+- 註記:此改動為業主明確指定,視覺上比《Design Language v1》「等高線極淡、背景地位、不以飽和色大面積作背景」的原則更為醒目/高對比,屬刻意取捨,已向業主說明差異。header 為固定白帶,覆蓋於綠底之上,視認性不受影響。
+
+## 2026-07-01 Hero 加回設備影像底 + 等高線改為地形起伏感
+
+- 業主回饋:改綠底後,舊版 hero 半透明後方那張「很淡的設備影像」消失了;且白色等高線是等距平行,想要像露營品牌參考圖那樣有高低起伏。
+- `.hero` 背景改為雙層:上層翡翠綠半透明色罩 `linear-gradient(180deg, rgba(29,138,100,0.90), rgba(20,99,75,0.95))`,下層 `PXL_20240925_064857239`(webp/jpg image-set)`center/cover`;設備影像淡淡透出,主色仍為品牌綠。
+- `.hero-topo` opacity 由 0.55 微調為 0.5。
+- 等高線 SVG:13 條等距波浪 → 改為 16 條以「地形高度場等值線」演算法產生(掃描 y 解 field=y+多頻 warp 的等值點,warp 含 y 依賴項使相鄰線間距隨位置聚攏/分散)。線與線間距不再等距,呈現山脊/山谷起伏;stroke-width 1.3→1.2,加 stroke-linejoin round。
+- 產生腳本留在 scratchpad(非 runtime 資產),未納入 repo。
+
+## 2026-07-01 Hero 等高線疏密再加劇 + 加入淡色次線 + 綠底再調淡
+
+- 業主追加回饋:要更劇烈的起伏及疏密變化;參考圖中兩條主線之間會夾雜幾條較淡的白色等高線;綠底再淡一些。
+- warp 函式加大 y 依賴振幅(68/24/32,原 60/34/-)並新增一個反向疏密驅動項,經隨機取樣驗證 d(field)/dy 最小值仍為正(約 0.098,無交叉/折返瑕疵);相鄰線間距比例可達 9 倍以上(如 x=600 從 95px 收到 10px)。
+- 新增雙層等高線:主線 9 條(`stroke-width 1.4`、`stroke-opacity 0.9`)+ 次線 24 條(每兩條主線間插 3 條,`stroke-width 0.7`、`stroke-opacity 0.32`),對應參考圖「主線之間夾雜淡線」的層次感。`.hero-topo` 容器 opacity 改為由各 `<g>` 的 stroke-opacity 分別控制,移除原本套在整體 svg 上的 0.5 opacity。
+- `.hero` 色罩改用 `--fl-green-400`(#33B798)漸層至 `--fl-green-500`,透明度由 0.90/0.95 降為 0.80/0.88,整體更淡、設備影像透出更明顯。
+- 產生腳本與中繼資料留在 scratchpad,未納入 repo。
+
+## 2026-07-01 主線調淡、移除關於佳聯冗字、3D 輪廓量測頁套用同款 hero
+
+- 業主回饋:白色主線仍偏搶眼,怕影響設備影像與文字可讀性;`3d-profiler.html` 的 hero 也要換成 index 首頁那種翡翠綠+設備影像+雙層等高線風格;移除「關於佳聯」段落中的「（如微米級偏光板檢測）」贅字。
+- `index.html`:主線群組 `stroke-opacity` 由 0.9 降為 0.62(次線群組維持 0.32 不變),降低與文字/照片的搶視覺程度。同步移除「（如微米級偏光板檢測）」文字。
+- `3d-profiler.html`:
+  - 原本 `.hero` 區塊同時包含標題/描述與整個 product-showcase(設備照片+規格清單),背景是淺色 `--fl-canvas`。現拆成兩個 `<section>`:
+    - `.hero`:只留標題「高精度 3D 輪廓量測設備」與描述文字,背景改為翡翠綠漸層色罩(`--fl-green-400→500`,0.80/0.88 透明度)疊加 `FineLink外觀圖.webp/png` 設備外觀照(image-set webp/png,無 jpg 版本故不用 jpg fallback),等高線改用與 index 首頁完全相同的雙層 33 條路徑(9 主線 `stroke-width 1.4 / opacity 0.62` + 24 次線 `stroke-width 0.7 / opacity 0.32`),標題與描述文字色改白/淡綠以維持對比。
+    - 新增 `.product-section`(背景沿用 `--fl-canvas`):承接原本的 `.product-showcase`(設備照片卡片+四項特色清單),視覺與行為不變,只是不再與綠色 hero 疊在一起。
+  - `.gradient-text` 全域仍為綠色,另加 `.hero .gradient-text { color:#fff; }` 局部覆寫,避免綠字疊在綠底上不可讀。
+- 兩頁的等高線路徑資料相同,確保跨頁視覺語言一致;產生腳本與中繼資料留在 scratchpad,未納入 repo。
+
+## 2026-07-01 評估 CTA 文案調整、AI 大腦→AI、修復全站邊框失效 bug
+
+- 業主回饋:「一個工作天內回覆」無法保證兌現;「AI 大腦」的「大腦」二字要拿掉;詢問「工業級規格」表格是否需要加格線/外框。
+- `3d-profiler.html` 底部 CTA 區「評估 3D 輪廓量測方案」文案由「我們在一個工作天內回覆評估建議」改為「我們的技術團隊將盡快回覆評估建議」,移除具體時限承諾。
+- `index.html` 聯絡我們段落「AI 大腦導入」改為「AI 導入」。
+- 排查規格表格格線問題時發現全站性 bug:`--fl-line` 這個 CSS 變數被 11 處(header 下邊線、footer 上邊線、service-card、service-image、case-media、adv-image、contact-box、product-image-container、gallery-item、gallery-item img、spec-table th/td)引用作為邊框顏色,但從未在任何檔案中定義過;`assets/finelink-tokens.css` 實際定義的 token 名稱是 `--fl-border`。因為 `border: 1px solid var(--fl-line)` 中 var() 失敗導致整個 border 簡寫宣告失效,這些元件目前全部沒有邊框顯示。
+- 已徵得業主同意採全站修復:於 `assets/styles.css` 的 `:root` 內新增 `--fl-line: var(--fl-border);` 映射,一次修好上述所有邊框(含規格表格格線與外框),且會隨亮/暗模式動態跟隨 `--fl-border` 的值變化。未逐一修改各處硬寫的 `var(--fl-line)`,以維持改動最小化。
+
+## 2026-07-01 邊框設計對照品牌規範稽核
+
+- 業主詢問全站修復後的邊框設計是否符合 `assets/files/FineLink-Design-Language-v1.md` 品牌規範。
+- 稽核結果:
+  - 顏色完全吻合:`--fl-border`(經 `--fl-line` 映射後套用)亮模式 `#E2E6EA`、暗模式 `#2A333B`,與規範第 2 節色彩對應表逐字相符。
+  - 無陰影、無發光:符合規範第 5.5 條「不加陰影不加發光」。
+  - 寬度:規範第 4 節允許 0.5-1px,目前全站用 1px,落在範圍內;但規範第 5.5 條特別把「卡片」訂為 0.5px。
+- 已與業主確認:卡片類邊框(service-card、contact-box、product-image-container 等)維持 1px,不改成規範文件寫的 0.5px,原因是 0.5px 在不同瀏覽器/縮放比例下可能渲染不一致或消失,1px 視覺更穩定。已於 `assets/styles.css` 加上對應說明註解,避免後續被誤「修正」回 0.5px。

@@ -1,0 +1,222 @@
+/* ==========================================================================
+   FineLink Design Language v1 — Design Tokens
+   佳聯光學科技 統一設計 token(亮色 / 暗色雙模式)
+   主色:翡翠綠 #1D8A64
+   用法:於網站與軟體 UI 引入本檔,一律以 var(--fl-*) 取用,不寫死 hex。
+   暗色模式:於根元素加上 data-theme="dark",或依系統偏好自動切換。
+   ========================================================================== */
+
+:root {
+  /* ---- 品牌綠色階(翡翠綠 Emerald,明度固定,不隨模式改變) ---- */
+  --fl-green-900: #06251C;
+  --fl-green-800: #0F4A38;
+  --fl-green-700: #14634B;
+  --fl-green-600: #1A7D5F;
+  --fl-green-500: #1D8A64;   /* 主色錨 */
+  --fl-green-400: #33B798;
+  --fl-green-300: #5DCAA5;
+  --fl-green-200: #9FE1CB;
+  --fl-green-100: #C7EFE6;
+  --fl-green-50:  #EBF9F4;
+
+  /* ---- 中性灰階(明度固定) ---- */
+  --fl-gray-900: #1A2028;
+  --fl-gray-700: #384049;
+  --fl-gray-500: #55606B;
+  --fl-gray-400: #7B8794;
+  --fl-gray-300: #AEB6BF;
+  --fl-gray-200: #E2E6EA;
+  --fl-gray-100: #EEF1F3;
+  --fl-gray-50:  #F6F8F9;
+  --fl-gray-0:   #FFFFFF;
+
+  /* ---- 語意色階(明度固定) ---- */
+  --fl-red-500:   #D64541;
+  --fl-red-400:   #E06B6A;
+  --fl-red-bg-l:  #FBE4E3;
+  --fl-red-bg-d:  #3A1E1D;
+  --fl-red-text-l:#8E2B29;
+
+  --fl-amber-500: #F5B81C;   /* Logo 星芒黃 */
+  --fl-amber-400: #F5C24C;
+  --fl-amber-bg-l:#FCF0D5;
+  --fl-amber-bg-d:#3A2E12;
+  --fl-amber-text-l:#8A6410;
+
+  /* ---- 暗模式面色(不用純黑,用深藍灰) ---- */
+  --fl-dark-canvas:   #0E1418;
+  --fl-dark-surface1: #151C22;
+  --fl-dark-surface2: #1C242B;
+  --fl-dark-border:   #2A333B;
+  --fl-dark-ink:      #F0F3F5;
+
+  /* ==== 角色 token(亮色模式預設) ==== */
+  --fl-primary:        var(--fl-green-500);
+  --fl-primary-hover:  var(--fl-green-600);
+  --fl-primary-strong: var(--fl-green-800);
+  --fl-on-primary:     var(--fl-gray-0);
+
+  --fl-canvas:    var(--fl-gray-50);
+  --fl-surface-1: var(--fl-gray-0);
+  --fl-surface-2: var(--fl-gray-0);
+  --fl-border:    var(--fl-gray-200);
+  --fl-border-strong: var(--fl-gray-400);
+
+  --fl-text-primary:   var(--fl-gray-900);
+  --fl-text-secondary: var(--fl-gray-500);
+  --fl-text-muted:     var(--fl-gray-400);
+
+  /* 語意(亮) */
+  --fl-pass:      var(--fl-green-500);
+  --fl-pass-bg:   var(--fl-green-100);
+  --fl-pass-text: var(--fl-green-800);
+  --fl-reject:      var(--fl-red-500);
+  --fl-reject-bg:   var(--fl-red-bg-l);
+  --fl-reject-text: var(--fl-red-text-l);
+  --fl-warn:      var(--fl-amber-500);
+  --fl-warn-bg:   var(--fl-amber-bg-l);
+  --fl-warn-text: var(--fl-amber-text-l);
+
+  /* ---- 字體 ---- */
+  --fl-font-sans: "IBM Plex Sans", "Noto Sans TC", system-ui, sans-serif;
+  --fl-font-mono: "IBM Plex Mono", "JetBrains Mono", ui-monospace, monospace;
+
+  /* ---- 間距(px) ---- */
+  --fl-space-1: 4px;
+  --fl-space-2: 8px;
+  --fl-space-3: 12px;
+  --fl-space-4: 16px;
+  --fl-space-6: 24px;
+  --fl-space-8: 32px;
+  --fl-space-12: 48px;
+
+  /* ---- 圓角(工業感,偏小) ---- */
+  --fl-radius-control: 6px;
+  --fl-radius-card:    12px;
+  --fl-radius-pill:    20px;
+
+  /* ---- 邊框 ---- */
+  --fl-border-width: 1px;
+  --fl-border-hair:  0.5px;
+
+  /* ---- 動效(克制) ---- */
+  --fl-dur: 0.18s;
+  --fl-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---- 焦點環(唯一允許的 box-shadow) ---- */
+  --fl-focus-ring: 0 0 0 2px var(--fl-green-300);
+}
+
+/* ==== 暗色模式:手動切換 ==== */
+[data-theme="dark"] {
+  --fl-primary:        var(--fl-green-400);
+  --fl-primary-hover:  var(--fl-green-300);
+  --fl-primary-strong: var(--fl-green-300);
+  --fl-on-primary:     var(--fl-green-900);
+
+  --fl-canvas:    var(--fl-dark-canvas);
+  --fl-surface-1: var(--fl-dark-surface1);
+  --fl-surface-2: var(--fl-dark-surface2);
+  --fl-border:    var(--fl-dark-border);
+  --fl-border-strong: var(--fl-gray-500);
+
+  --fl-text-primary:   var(--fl-dark-ink);
+  --fl-text-secondary: var(--fl-gray-300);
+  --fl-text-muted:     var(--fl-gray-400);
+
+  --fl-pass:      var(--fl-green-400);
+  --fl-pass-bg:   #123F31;
+  --fl-pass-text: var(--fl-green-300);
+  --fl-reject:      var(--fl-red-400);
+  --fl-reject-bg:   var(--fl-red-bg-d);
+  --fl-reject-text: var(--fl-red-400);
+  --fl-warn:      var(--fl-amber-400);
+  --fl-warn-bg:   var(--fl-amber-bg-d);
+  --fl-warn-text: var(--fl-amber-400);
+
+  --fl-focus-ring: 0 0 0 2px var(--fl-green-500);
+}
+
+/* ==== 暗色模式:跟隨系統(未手動指定 data-theme 時) ==== */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fl-primary:        var(--fl-green-400);
+    --fl-primary-hover:  var(--fl-green-300);
+    --fl-primary-strong: var(--fl-green-300);
+    --fl-on-primary:     var(--fl-green-900);
+
+    --fl-canvas:    var(--fl-dark-canvas);
+    --fl-surface-1: var(--fl-dark-surface1);
+    --fl-surface-2: var(--fl-dark-surface2);
+    --fl-border:    var(--fl-dark-border);
+    --fl-border-strong: var(--fl-gray-500);
+
+    --fl-text-primary:   var(--fl-dark-ink);
+    --fl-text-secondary: var(--fl-gray-300);
+    --fl-text-muted:     var(--fl-gray-400);
+
+    --fl-pass:      var(--fl-green-400);
+    --fl-pass-bg:   #123F31;
+    --fl-pass-text: var(--fl-green-300);
+    --fl-reject:      var(--fl-red-400);
+    --fl-reject-bg:   var(--fl-red-bg-d);
+    --fl-reject-text: var(--fl-red-400);
+    --fl-warn:      var(--fl-amber-400);
+    --fl-warn-bg:   var(--fl-amber-bg-d);
+    --fl-warn-text: var(--fl-amber-400);
+
+    --fl-focus-ring: 0 0 0 2px var(--fl-green-500);
+  }
+}
+
+/* ==========================================================================
+   基礎元件範例(可直接沿用或覆寫)
+   ========================================================================== */
+
+.fl-btn-primary {
+  background: var(--fl-primary);
+  color: var(--fl-on-primary);
+  border: none;
+  border-radius: var(--fl-radius-control);
+  padding: 9px 18px;
+  font-family: var(--fl-font-sans);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--fl-dur) var(--fl-ease);
+}
+.fl-btn-primary:hover { background: var(--fl-primary-hover); }
+.fl-btn-primary:focus-visible { outline: none; box-shadow: var(--fl-focus-ring); }
+
+.fl-btn-secondary {
+  background: transparent;
+  color: var(--fl-text-primary);
+  border: var(--fl-border-hair) solid var(--fl-border-strong);
+  border-radius: var(--fl-radius-control);
+  padding: 9px 18px;
+  font-family: var(--fl-font-sans);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.fl-card {
+  background: var(--fl-surface-1);
+  border: var(--fl-border-hair) solid var(--fl-border);
+  border-radius: var(--fl-radius-card);
+  padding: var(--fl-space-6);
+}
+
+.fl-pill {
+  display: inline-block;
+  padding: 3px 12px;
+  border: var(--fl-border-hair) solid var(--fl-primary);
+  border-radius: var(--fl-radius-pill);
+  color: var(--fl-pass-text);
+  font-size: 12px;
+}
+
+.fl-badge-pass   { background: var(--fl-pass-bg);   color: var(--fl-pass-text);   padding: 4px 12px; border-radius: var(--fl-radius-pill); font-size: 12px; font-weight: 500; }
+.fl-badge-reject { background: var(--fl-reject-bg); color: var(--fl-reject-text); padding: 4px 12px; border-radius: var(--fl-radius-pill); font-size: 12px; font-weight: 500; }
+.fl-badge-warn   { background: var(--fl-warn-bg);   color: var(--fl-warn-text);   padding: 4px 12px; border-radius: var(--fl-radius-pill); font-size: 12px; font-weight: 500; }
+
+/* 數據數字一律等寬 */
+.fl-metric { font-family: var(--fl-font-mono); font-weight: 500; color: var(--fl-text-primary); }

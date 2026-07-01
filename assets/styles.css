@@ -1,198 +1,142 @@
 /* ==========================================================================
-   FineLink 共用樣式表
-   兩支 HTML (index.html, 3d-profiler.html) 共用的設計 token、reset、
-   header / nav、section 標題、footer 與圖片保護等基底樣式。
-   頁面專屬樣式（hero、case-card、gallery-item 等）仍寫在各頁面的 <style>。
+   FineLink 共用樣式表 — 套用 FineLink Design Language v1
+   亮色模式為主。主色:翡翠綠 #1D8A64。去毛玻璃/漸層/發光。
    ========================================================================== */
 
+@import "./finelink-tokens.css";
+
 :root {
-    --bg-color: #050b14;
-    --text-color: #e0e6ed;
-    --primary-color: #00e5ff;
-    --secondary-color: #4da6ff;
-    --accent-color: #7b2cbf;
-    --card-bg: rgba(16, 32, 56, 0.6);
-    --glass-bg: rgba(5, 11, 20, 0.85);
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --transition-speed: 0.3s;
+    /* 雙模等高線線條顏色：亮模式 (翡翠綠 500 @ 8% opacity) */
+    --fl-topo-stroke: rgba(29, 138, 100, 0.08);
+
+    /* 角色映射（以保持與現有樣式的相容性） */
+    --primary-color: var(--fl-primary);
+    --primary-hover: var(--fl-primary-hover);
+    --text-color:    var(--fl-text-primary);
+    --bg-color:      var(--fl-canvas);
+
+    --radius-control: var(--fl-radius-control);
+    --radius-card:    var(--fl-radius-card);
+    --transition-speed: var(--fl-dur);
+
+    --font-sans: var(--fl-font-sans);
+    --font-mono: var(--fl-font-mono);
+
+    /* 修正:過去多處誤用 --fl-line(未定義),實際 token 名稱為 --fl-border */
+    --fl-line: var(--fl-border);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* 卡片邊框寬度採 1px(非規範文件 FineLink-Design-Language-v1.md 第5節寫的 0.5px):
+   業主確認 1px 在不同瀏覽器/縮放下渲染較穩定,優先於文件的精確值,已知差異 */
+
+[data-theme="dark"] {
+    /* 雙模等高線線條顏色：暗模式 (翡翠綠 400 @ 6% opacity) */
+    --fl-topo-stroke: rgba(51, 183, 152, 0.06);
 }
 
-html {
-    scroll-behavior: smooth;
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        /* 雙模等高線線條顏色：暗模式 (翡翠綠 400 @ 6% opacity) */
+        --fl-topo-stroke: rgba(51, 183, 152, 0.06);
+    }
 }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
-    font-family: 'Inter', 'Noto Sans TC', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.6;
+    font-family: var(--font-sans);
+    background-color: var(--fl-canvas);
+    color: var(--fl-ink);
+    line-height: 1.7;
     overflow-x: hidden;
 }
 
-/* Accessibility: skip-to-content link，僅在鍵盤聚焦時可見 */
 .skip-link {
-    position: absolute;
-    top: -100px;
-    left: 0;
-    background: var(--primary-color);
-    color: var(--bg-color);
-    padding: 12px 20px;
-    font-weight: 700;
-    text-decoration: none;
-    z-index: 2000;
-    border-radius: 0 0 8px 0;
+    position: absolute; top: -100px; left: 0;
+    background: var(--fl-green-500); color: #fff;
+    padding: 12px 20px; font-weight: 500; text-decoration: none;
+    z-index: 2000; border-radius: 0 0 8px 0;
     transition: top var(--transition-speed);
 }
+.skip-link:focus { top: 0; outline: 2px solid var(--fl-green-700); outline-offset: 2px; }
 
-.skip-link:focus {
-    top: 0;
-    outline: 2px solid #fff;
-    outline-offset: 2px;
-}
-
-/* Image protection — 行動裝置不可加入 pointer-events: none，會讓圖片無法顯示 */
 img {
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
+    -webkit-user-drag: none; -khtml-user-drag: none; -moz-user-drag: none; -o-user-drag: none;
+    user-select: none; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none;
 }
+picture { display: contents; }
 
-/* <picture> 僅作 WebP 來源容器，版面交由內部 <img> 決定（保留既有 flex/grid 與 width:100%） */
-picture {
-    display: contents;
-}
+h1, h2, h3, h4 { color: var(--fl-ink); font-weight: 500; }
 
-h1,
-h2,
-h3,
-h4 {
-    color: #ffffff;
-    font-weight: 700;
-}
-
-.gradient-text {
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Header (Glassmorphism) */
+/* Header — 白底細邊,無毛玻璃 */
 header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--glass-border);
-    padding: 1.2rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: fixed; top: 0; width: 100%;
+    background: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid var(--fl-line);
+    padding: 1rem 5%;
+    display: flex; justify-content: space-between; align-items: center;
     z-index: 1000;
-    transition: all var(--transition-speed) ease;
 }
-
-header h1 {
-    font-size: 1.5rem;
-    letter-spacing: 2px;
-    font-weight: 900;
-    margin: 0;
-}
+header h1 { font-size: 1.25rem; letter-spacing: 0.5px; font-weight: 500; margin: 0; color: var(--fl-ink); }
 
 nav a {
-    color: var(--text-color);
-    text-decoration: none;
-    margin-left: 30px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: color var(--transition-speed);
-    position: relative;
+    color: var(--fl-soft); text-decoration: none; margin-left: 28px;
+    font-size: 0.95rem; font-weight: 400;
+    transition: color var(--transition-speed); position: relative;
 }
-
 nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary-color);
+    content: ''; position: absolute; bottom: -6px; left: 0;
+    width: 0; height: 2px; background: var(--fl-green-500);
     transition: width var(--transition-speed);
 }
-
-nav a:hover {
-    color: var(--primary-color);
-}
-
-nav a:hover::after {
-    width: 100%;
-}
+nav a:hover { color: var(--fl-green-600); }
+nav a:hover::after { width: 100%; }
 
 /* Section base */
-section {
-    padding: 100px 5%;
-}
+section { padding: 96px 5%; }
 
 .section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 60px;
-    position: relative;
+    text-align: center; font-size: 2rem; font-weight: 500;
+    color: var(--fl-ink); margin-bottom: 56px; position: relative;
 }
-
 .section-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: var(--primary-color);
-    margin: 15px auto 0;
-    border-radius: 2px;
+    content: ''; display: block; width: 48px; height: 3px;
+    background: var(--fl-green-500); margin: 16px auto 0; border-radius: 2px;
 }
 
-/* Footer */
+/* Footer — 淺色極簡 */
 footer {
-    background: #03060a;
-    padding: 30px 5%;
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--fl-surface);
+    padding: 32px 5%; text-align: center;
+    border-top: 1px solid var(--fl-line);
+}
+footer p { color: var(--fl-muted); font-size: 0.9rem; }
+
+/* 主題切換按鈕 */
+.theme-toggle {
+    background: transparent;
+    border: none;
+    color: var(--fl-text-secondary);
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-left: 24px;
+    padding: 6px;
+    border-radius: var(--fl-radius-control);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--transition-speed), background-color var(--transition-speed);
+}
+.theme-toggle:hover {
+    color: var(--fl-primary);
+    background-color: var(--fl-canvas);
 }
 
-footer p {
-    color: #6c8299;
-    font-size: 0.9rem;
-}
-
-/* Shared responsive header */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 15px;
-        gap: 15px;
-    }
+    header { flex-direction: column; padding: 14px; gap: 12px; }
+    nav { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
+    nav a { margin: 0 10px; }
+    .theme-toggle { margin-left: 10px; }
 }
