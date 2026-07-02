@@ -24,6 +24,14 @@
 
     /* 修正:過去多處誤用 --fl-line(未定義),實際 token 名稱為 --fl-border */
     --fl-line: var(--fl-border);
+
+    /* 修正:舊命名別名(未隨 token 改名遷移),對映現行角色 token。
+       缺這四行時,var(--fl-ink/soft/muted/surface) 無 fallback → 失效:
+       文字退回預設黑(暗模式黑字配深底不可讀)、面板底色變透明。 */
+    --fl-ink:     var(--fl-text-primary);
+    --fl-soft:    var(--fl-text-secondary);
+    --fl-muted:   var(--fl-text-muted);
+    --fl-surface: var(--fl-surface-1);
 }
 
 /* 卡片邊框寬度採 1px(非規範文件 FineLink-Design-Language-v1.md 第5節寫的 0.5px):
